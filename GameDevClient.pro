@@ -6,4 +6,8 @@ CONFIG -= qt
 include(sfml.pri)
 
 SOURCES += \
-    main.cpp
+    main.cpp \
+
+HEADERS += \
+    headers/resourcemanagement/resourceholder.hpp \
+    headers/resourcemanagement/resourceholder.inl
