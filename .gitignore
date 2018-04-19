@@ -33,3 +33,4 @@
 
 # Config files
 *.pro.user
+*.pri
