@@ -5,7 +5,6 @@
 #include <memory>
 #include <cassert>
 
-#include <SFML/Graphics.hpp>
 
 namespace Resources
 {
