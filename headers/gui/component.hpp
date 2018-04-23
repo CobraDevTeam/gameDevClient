@@ -11,6 +11,10 @@
 namespace GUI
 {
 
+/**
+ * @brief Une classe abstraite dont va dériver toutes les composants de l'interface graphique
+ */
+
 class Component : public sf::Drawable
                 , public sf::Transformable
                 , private sf::NonCopyable
@@ -19,15 +23,29 @@ public:
     typedef std::shared_ptr<Component> Ptr;
 
 public:
+
+    /**
+     * @brief Constructeur, initialise les deux attributs
+     */
                     Component();
+
     virtual         ~Component();
+
+    /**
+    * @brief Détermine si le component peut être sélectionné ou pas
+    */
     virtual bool    isSelectable() const = 0;
+
     bool            isSelected() const;
     virtual void    select();
     virtual void    deselect();
     virtual bool    isActive() const;
     virtual void    activate();
     virtual void    deactivate();
+
+    /**
+    * @brief Fonction prenant en charge les interruptions des évènements
+    */
     virtual void    handleEvent(const sf::Event& event) = 0;
 
 private:
