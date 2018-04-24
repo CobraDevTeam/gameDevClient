@@ -7,6 +7,7 @@
 
 #include "headers/gui/component.hpp"
 #include "headers/resourcemanagement/resourceholder.hpp"
+#include "headers/resourcemanagement/resourceidentifiers.hpp"
 
 namespace GUI {
 
@@ -23,7 +24,7 @@ public:
     /**
      * @brief Constructeur, définit la forme et le texte
      */
-                                    Label(const std::string& text, const sf::Font& font);
+                                    Label(const std::string& text, const Resources::FontHolder& font);
 
     /**
     * @brief Détermine si le composant peut être selectionné ou pas : ici false

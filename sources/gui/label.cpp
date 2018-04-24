@@ -2,8 +2,8 @@
 
 namespace GUI {
 
-Label::Label(const std::string& text, const sf::Font& font)
-    :mText(text, font, 20)
+Label::Label(const std::string& text, const Resources::FontHolder& fonts)
+    :mText(text, fonts.get(Resources::FontsID::Base), 16)
 {}
 
 bool Label::isSelectable() const
