@@ -16,4 +16,5 @@ HEADERS += \
     headers/resourcemanagement/resourceholder.inl \
     headers/gui/component.hpp \
     headers/gui/container.hpp \
-    headers/gui/label.hpp
+    headers/gui/label.hpp \
+    headers/resourcemanagement/resourceidentifiers.hpp

@@ -9,8 +9,6 @@
 namespace Resources
 {
 
-enum class ID {Bonsoir};
-
 template <typename Resource, typename Identifier>
 class ResourceHolder
 {
