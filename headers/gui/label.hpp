@@ -12,7 +12,7 @@
 namespace GUI {
 
 /**
- * @brief Component du GUI destinée à afficher du texte
+ * @brief Component du GUI destiné à afficher du texte
  */
 
 class Label : public Component

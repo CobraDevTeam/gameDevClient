@@ -19,7 +19,10 @@ enum class TexturesID
 {
     Elo,
     Bonsoir,
-    Terre
+    Terre,
+    NormalButton,
+    SelectedButton,
+    PressedButton
 };
 
 /**
