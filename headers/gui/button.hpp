@@ -47,6 +47,8 @@ public:
      */
     virtual void            handleEvent(const sf::Event&);
 
+    virtual bool            checkMouseOnComponent(sf::Vector2i);
+
 private:
     virtual void            draw(sf::RenderTarget &target, sf::RenderStates states) const;
 

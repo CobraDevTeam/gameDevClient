@@ -2,6 +2,7 @@
 #define CONTAINER_HPP
 
 #include "headers/gui/component.hpp"
+#include "SFML/Graphics/RenderWindow.hpp"
 
 namespace GUI {
 
@@ -33,6 +34,8 @@ public:
      * @brief Prend en charge les interruptions et les traite : ici il les renvoie au composant selectionné
      */
     virtual void                    handleEvent(const sf::Event &event);
+    virtual void                    handleEvent(const sf::Event &event, sf::Vector2i mousePos);
+
 
 private:
     virtual void                    draw(sf::RenderTarget &target, sf::RenderStates states) const;

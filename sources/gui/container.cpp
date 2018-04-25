@@ -1,4 +1,5 @@
 #include "SFML/Graphics/RenderTarget.hpp"
+#include "SFML/Window/Mouse.hpp"
 
 #include "headers/gui/container.hpp"
 
@@ -9,6 +10,11 @@ Container::Container()
 {
 }
 
+void Container::pack(Component::Ptr component)
+{
+    mChildren.push_back(component);
+}
+
 bool Container::isSelectable() const
 {
     return false;
@@ -16,7 +22,26 @@ bool Container::isSelectable() const
 
 void Container::handleEvent(const sf::Event &event)
 {
-    // Souris handler
+    if(event.type == sf::Event::MouseButtonPressed)
+    {
+        for(auto it = mChildren.begin(); it != mChildren.end(); it++)
+        {
+            if((*it)->checkMouseOnComponent(sf::Mouse::getPosition()))
+                (*it)->handleEvent(event);
+        }
+    }
+}
+
+void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
+{
+    if(event.type == sf::Event::MouseButtonPressed)
+    {
+        for(auto it = mChildren.begin(); it != mChildren.end(); it++)
+        {
+            if((*it)->checkMouseOnComponent(mousePos))
+                (*it)->handleEvent(event);
+        }
+    }
 }
 
 void Container::draw(sf::RenderTarget &target, sf::RenderStates states) const
@@ -28,7 +53,5 @@ void Container::draw(sf::RenderTarget &target, sf::RenderStates states) const
         target.draw(**child, states);
     }
 }
-
-
 
 }

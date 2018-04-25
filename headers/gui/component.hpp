@@ -43,6 +43,8 @@ public:
     virtual void    activate();
     virtual void    deactivate();
 
+    virtual bool            checkMouseOnComponent(sf::Vector2i);
+
     /**
     * @brief Fonction prenant en charge les interruptions des évènements
     */

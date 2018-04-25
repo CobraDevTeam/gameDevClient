@@ -1,5 +1,7 @@
 #include "headers/gui/button.hpp"
 
+#include <iostream>
+
 namespace GUI {
 
 Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures)
@@ -80,15 +82,25 @@ void Button::deactivate()
 
 void Button::handleEvent(const sf::Event&)
 {
-
+    activate();
 }
 
 void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
+    target.draw(mSprite, states);
     target.draw(mText, states);
 }
 
+bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
+{
+    if (mousePos.x>getPosition().x && mousePos.x<(getPosition().x + mSprite.getGlobalBounds().width)) {
+        if(mousePos.y>getPosition().y && mousePos.y<(getPosition().y + mSprite.getGlobalBounds().height)) {
+            return true;
+        }
+    }
+    return false;
+}
 
 }
 

@@ -41,5 +41,9 @@ void Component::deactivate()
     mIsActive = false;
 }
 
+bool Component::checkMouseOnComponent(sf::Vector2i) {
+    return false;
+}
+
 }
 
