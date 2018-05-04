@@ -20,26 +20,15 @@ bool Container::isSelectable() const
     return false;
 }
 
-void Container::handleEvent(const sf::Event &event)
-{
-    if(event.type == sf::Event::MouseButtonPressed)
-    {
-        for(auto it = mChildren.begin(); it != mChildren.end(); it++)
-        {
-            if((*it)->checkMouseOnComponent(sf::Mouse::getPosition()))
-                (*it)->handleEvent(event);
-        }
-    }
-}
-
 void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
 {
     if(event.type == sf::Event::MouseButtonPressed)
     {
         for(auto it = mChildren.begin(); it != mChildren.end(); it++)
         {
-            if((*it)->checkMouseOnComponent(mousePos))
-                (*it)->handleEvent(event);
+            if((*it)->isSelectable())
+                if((*it)->checkMouseOnComponent(mousePos))
+                    (*it)->handleEvent(event);
         }
     }
 }

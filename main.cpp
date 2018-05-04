@@ -6,6 +6,7 @@
 #include "headers/resourcemanagement/resourceholder.hpp"
 #include "headers/gui/container.hpp"
 #include "headers/gui/button.hpp"
+#include "headers/gui/label.hpp"
 
 using namespace std;
 
@@ -27,7 +28,10 @@ int main()
     button->setText("Plop");
     button->setCallblack([]() {std::cout << "Lourd";});
 
+    auto label = make_shared<GUI::Label>("Plop", fonts);
+
     container.pack(button);
+    container.pack(label);
 
     sf::RenderWindow window(sf::VideoMode(640, 480), "Cobra");
 

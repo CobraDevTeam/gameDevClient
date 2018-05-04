@@ -47,7 +47,11 @@ public:
      */
     virtual void            handleEvent(const sf::Event&);
 
-    virtual bool            checkMouseOnComponent(sf::Vector2i);
+    /**
+     * @brief Détermine si les coordonnées en argument sont dans la zone du component
+     * @param mousePos : position de la souris dans la RenderWindow
+     */
+    virtual bool            checkMouseOnComponent(sf::Vector2i mousePos);
 
 private:
     virtual void            draw(sf::RenderTarget &target, sf::RenderStates states) const;

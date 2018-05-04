@@ -1,4 +1,5 @@
 #include "headers/gui/label.hpp"
+#include <iostream>
 
 namespace GUI {
 
@@ -17,7 +18,8 @@ void Label::setText(const std::string &text)
 }
 
 void Label::handleEvent(const sf::Event&)
-{}
+{
+}
 
 void Label::draw(sf::RenderTarget &target, sf::RenderStates states) const
 {

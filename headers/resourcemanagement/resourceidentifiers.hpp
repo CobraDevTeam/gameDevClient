@@ -1,7 +1,6 @@
 #ifndef RESOURCEIDENTIFIERS_HPP
 #define RESOURCEIDENTIFIERS_HPP
 
-#endif // RESOURCEIDENTIFIERS_HPP
 
 namespace sf
 {
@@ -47,3 +46,6 @@ typedef ResourceHolder<sf::Texture, Resources::TexturesID> TextureHolder;
 typedef ResourceHolder<sf::Font, Resources::FontsID> FontHolder;
 
 }
+
+
+#endif // RESOURCEIDENTIFIERS_HPP

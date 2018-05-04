@@ -43,6 +43,9 @@ public:
     virtual void    activate();
     virtual void    deactivate();
 
+    /**
+     * @brief Détermine si les coordonnées en argument sont dans la zone du component
+     */
     virtual bool            checkMouseOnComponent(sf::Vector2i);
 
     /**
