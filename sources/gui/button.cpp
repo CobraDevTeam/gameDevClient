@@ -80,7 +80,7 @@ void Button::deactivate()
     }
 }
 
-void Button::handleEvent(const sf::Event&)
+void Button::handleEvent(const sf::Event&, sf::Vector2i)
 {
     activate();
 }

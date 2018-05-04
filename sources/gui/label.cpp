@@ -17,7 +17,7 @@ void Label::setText(const std::string &text)
     mText.setString(text);
 }
 
-void Label::handleEvent(const sf::Event&)
+void Label::handleEvent(const sf::Event&, sf::Vector2i)
 {
 }
 

@@ -28,7 +28,7 @@ void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
         {
             if((*it)->isSelectable())
                 if((*it)->checkMouseOnComponent(mousePos))
-                    (*it)->handleEvent(event);
+                    (*it)->handleEvent(event, mousePos);
         }
     }
 }

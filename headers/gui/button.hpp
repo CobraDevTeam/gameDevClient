@@ -43,9 +43,9 @@ public:
     virtual void            deactivate();
 
     /**
-     * @brief Prend en charge les interruptions et les traite : ici vide, Button n'agit que lors de l'activation
+     * @brief Prend en charge les interruptions et les traite : active le bouton
      */
-    virtual void            handleEvent(const sf::Event&);
+    virtual void            handleEvent(const sf::Event&, sf::Vector2i);
 
     /**
      * @brief Détermine si les coordonnées en argument sont dans la zone du component

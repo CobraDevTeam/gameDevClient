@@ -51,7 +51,7 @@ public:
     /**
     * @brief Fonction prenant en charge les interruptions des évènements
     */
-    virtual void    handleEvent(const sf::Event& event) = 0;
+    virtual void    handleEvent(const sf::Event& event, sf::Vector2i mousePos) = 0;
 
 private:
     bool mIsSelected;
