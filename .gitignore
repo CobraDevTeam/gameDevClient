@@ -34,3 +34,4 @@
 # Config files
 *.pro.user
 *.pri
+test.cpp
