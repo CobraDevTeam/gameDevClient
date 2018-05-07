@@ -7,7 +7,9 @@ include(sfml.pri)
 
 SOURCES += \
     main.cpp \
+    sources/application.cpp
 
 HEADERS += \
     headers/resourcemanagement/resourceholder.hpp \
-    headers/resourcemanagement/resourceholder.inl
+    headers/resourcemanagement/resourceholder.inl \
+    headers/application.hpp
