@@ -8,10 +8,13 @@ include(sfml.pri)
 SOURCES += \
     main.cpp \
     sources/application.cpp \
-    sources/connection/gateway.cpp
+    sources/connection/gateway.cpp \
+    sources/connection/packet.cpp
 
 HEADERS += \
-    headers/resourcemanagement/resourceholder.hpp \
+    headers/resourcemanagemebnt/resourceholder.hpp \
     headers/resourcemanagement/resourceholder.inl \
     headers/application.hpp \
-    headers/connection/gateway.hpp
+    headers/connection/gateway.hpp \
+    headers/connection/packet.hpp \
+    headers/resourcemanagement/resourceholder.hpp
