@@ -25,7 +25,7 @@ int main()
 
     auto button = make_shared<GUI::Button>(fonts, textures, []() {std::cout << "Lourd";}, "Plop", false, sf::Vector2f(100.f, 100.f));
 
-    auto label = make_shared<GUI::Label>("Plop", fonts);
+    auto label = make_shared<GUI::Label>("Plop", fonts,sf::Vector2f(100.f, 200.f));
 
     container.pack(button);
     container.pack(label);

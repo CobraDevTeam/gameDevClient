@@ -10,7 +10,8 @@ SOURCES += \
     sources/gui/component.cpp \
     sources/gui/container.cpp \
     sources/gui/label.cpp \
-    sources/gui/button.cpp
+    sources/gui/button.cpp \
+    sources/utility.cpp
 
 HEADERS += \
     headers/resourcemanagement/resourceholder.hpp \
@@ -19,4 +20,5 @@ HEADERS += \
     headers/gui/container.hpp \
     headers/gui/label.hpp \
     headers/gui/button.hpp \
-    headers/resourcemanagement/resourceidentifiers.hpp
+    headers/resourcemanagement/resourceidentifiers.hpp \
+    headers/utility.hpp

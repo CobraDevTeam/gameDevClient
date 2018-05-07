@@ -1,4 +1,5 @@
 #include "headers/gui/button.hpp"
+#include "headers/utility.hpp"
 
 #include <iostream>
 
@@ -16,11 +17,13 @@ Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder
 {
     mSprite.setTexture(mNormalTexture);
 
-    sf::FloatRect bounds = mSprite.getLocalBounds();
     setPosition(position);
-    mText.setPosition(bounds.width/2.f, bounds.height/2.f);
-}
 
+    sf::FloatRect bounds = mSprite.getLocalBounds();
+    mText.setPosition(bounds.width/2.f, bounds.height/2.f);
+
+    Utility::centerOrigin(mText);
+}
 
 
 void Button::setCallblack(Callback callback)
@@ -31,6 +34,7 @@ void Button::setCallblack(Callback callback)
 void Button::setText(std::string text)
 {
     mText.setString(text);
+    Utility::centerOrigin(mText);
 }
 
 void Button::setToggle(bool toggle)
@@ -107,5 +111,4 @@ bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
 }
 
 }
-
 

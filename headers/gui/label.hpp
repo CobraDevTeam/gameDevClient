@@ -24,7 +24,7 @@ public:
     /**
      * @brief Constructeur, définit la forme et le texte
      */
-                                    Label(const std::string& text, const Resources::FontHolder& font);
+                                    Label(const std::string& text, const Resources::FontHolder& font, sf::Vector2f position = sf::Vector2f(0,0));
 
     /**
     * @brief Détermine si le composant peut être selectionné ou pas : ici false

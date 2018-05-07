@@ -1,11 +1,15 @@
 #include "headers/gui/label.hpp"
+#include "headers/utility.hpp"
 #include <iostream>
 
 namespace GUI {
 
-Label::Label(const std::string& text, const Resources::FontHolder& fonts)
+Label::Label(const std::string& text, const Resources::FontHolder& fonts, sf::Vector2f position)
     :mText(text, fonts.get(Resources::FontsID::Base), 16)
-{}
+{
+    setPosition(position);
+    Utility::centerOrigin(mText);
+}
 
 bool Label::isSelectable() const
 {
