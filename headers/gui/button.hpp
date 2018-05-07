@@ -26,7 +26,7 @@ public:
     /**
      * @brief Constructeur, définit les textures et initialise le bouton en état normal
      */
-    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures);
+    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback = [](){}, std::string text = "", bool toggle = false, sf::Vector2f position = sf::Vector2f(0,0));
 
     void                    setCallblack(Callback callback);
     void                    setText(std::string text);

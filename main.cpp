@@ -23,10 +23,7 @@ int main()
 
     GUI::Container container;
 
-    auto button = make_shared<GUI::Button>(fonts, textures);
-    button->setPosition(100.f,100.f);
-    button->setText("Plop");
-    button->setCallblack([]() {std::cout << "Lourd";});
+    auto button = make_shared<GUI::Button>(fonts, textures, []() {std::cout << "Lourd";}, "Plop", false, sf::Vector2f(100.f, 100.f));
 
     auto label = make_shared<GUI::Label>("Plop", fonts);
 
