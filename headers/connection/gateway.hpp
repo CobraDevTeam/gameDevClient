@@ -5,10 +5,14 @@
 #include <SFML/Network/TcpSocket.hpp>
 #include <SFML/Network/IpAddress.hpp>
 
+#include "headers/connection/packet.hpp"
+
 class Gateway : private sf::NonCopyable
 {
     public:
         Gateway(sf::IpAddress dstAddress, unsigned int dstPort);
+
+        void sendPacket(Packet packet);
 
     private:
         /// La socket TCP grâce à laquelle on va communiquer

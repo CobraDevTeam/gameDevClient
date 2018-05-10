@@ -7,13 +7,13 @@ namespace GUI {
 
 
 Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback, std::string text, bool toggle, sf::Vector2f position)
-    :mCallback(callback)
-    ,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
-    ,mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
-    ,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
-    ,mSprite()
-    ,mText(text, font.get(Resources::FontsID::Base), 16)
-    ,mIsToggle(toggle)
+:mCallback(callback)
+,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
+,mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
+,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
+,mSprite()
+,mText(text, font.get(Resources::FontsID::Base), 16)
+,mIsToggle(toggle)
 {
     mSprite.setTexture(mNormalTexture);
 
