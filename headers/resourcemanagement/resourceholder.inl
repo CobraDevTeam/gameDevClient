@@ -30,14 +30,14 @@ template <typename Resource, typename Identifier>
 Resource& ResourceHolder<Resource, Identifier>::get(Identifier id)
 {
     auto found = mResourceMap.find(id);
-    return (*found)->second;
+    return *found->second;
 }
 
 template <typename Resource, typename Identifier>
 const Resource& ResourceHolder<Resource, Identifier>::get(Identifier id) const
 {
     auto found = mResourceMap.find(id);
-    return (*found)->second;
+    return *found->second;
 }
 
 #endif // RESOURCEHOLDER_INL
