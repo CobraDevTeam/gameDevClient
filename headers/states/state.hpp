@@ -6,8 +6,12 @@
 #include "SFML/System/Time.hpp"
 
 #include "headers/states/stateidentifier.hpp"
+#include "headers/resourcemanagement/resourceidentifiers.hpp"
 
 class StateStack;
+namespace sf {
+    class RenderWindow;
+}
 
 class State
 {
@@ -15,7 +19,11 @@ class State
         typedef std::unique_ptr<State> Ptr;
         struct Context
         {
+                                            Context(sf::RenderWindow& renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures);
 
+            sf::RenderWindow*               mRenderWindow;
+            Resources::FontHolder*          mFonts;
+            Resources::TextureHolder*       mTextures;
         };
 
     public:

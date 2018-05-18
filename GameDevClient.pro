@@ -14,7 +14,8 @@ SOURCES += \
     sources/gui/button.cpp \
     sources/utility.cpp \
     sources/states/statestack.cpp \
-    sources/states/state.cpp
+    sources/states/state.cpp \
+    sources/states/menustate.cpp
 
 HEADERS += \
     headers/resourcemanagement/resourceholder.hpp \
@@ -28,4 +29,5 @@ HEADERS += \
     headers/utility.hpp \
     headers/states/statestack.hpp \
     headers/states/state.hpp \
-    headers/states/stateidentifier.hpp
+    headers/states/stateidentifier.hpp \
+    headers/states/menustate.hpp
