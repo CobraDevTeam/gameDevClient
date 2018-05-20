@@ -26,9 +26,9 @@ public:
     /**
      * @brief Constructeur, définit les textures et initialise le bouton en état normal
      */
-    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback = [](){}, std::string text = "", bool toggle = false, sf::Vector2f position = sf::Vector2f(0,0));
+    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text = "", sf::Vector2f position = sf::Vector2f(0,0), bool toggle = false);
 
-    void                    setCallblack(Callback callback);
+    void                    setCallback(Callback callback);
     void                    setText(std::string text);
     /**
      * @brief Détermine si le Button est poussoir ou un interrupteur

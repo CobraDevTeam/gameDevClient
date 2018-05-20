@@ -6,7 +6,8 @@ namespace States
     enum class ID
     {
         None,
-        MainMenu
+        MainMenu,
+        Connection
     };
 }
 

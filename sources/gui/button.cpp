@@ -6,8 +6,8 @@
 namespace GUI {
 
 
-Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback, std::string text, bool toggle, sf::Vector2f position)
-    :mCallback(callback)
+Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position, bool toggle)
+    :mCallback()
     ,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
     ,mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
     ,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
@@ -26,7 +26,7 @@ Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder
 }
 
 
-void Button::setCallblack(Callback callback)
+void Button::setCallback(Callback callback)
 {
     mCallback = std::move(callback);
 }

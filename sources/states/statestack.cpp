@@ -1,5 +1,7 @@
 #include "headers/states/statestack.hpp"
 
+#include <iostream>
+
 StateStack::StateStack(State::Context context)
 :mStack()
 ,mPendingList()
