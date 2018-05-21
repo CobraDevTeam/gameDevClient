@@ -4,8 +4,8 @@
 
 State::Context::Context(sf::RenderWindow &renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures)
 : mRenderWindow(&renderWindow)
-, mTextures(&textures)
 , mFonts(&fonts)
+, mTextures(&textures)
 {
 
 }

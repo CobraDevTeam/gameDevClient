@@ -7,7 +7,7 @@ namespace States
     {
         None,
         MainMenu,
-        Connection
+        ConnectionMenu
     };
 }
 

@@ -15,7 +15,8 @@ SOURCES += \
     sources/utility.cpp \
     sources/states/statestack.cpp \
     sources/states/state.cpp \
-    sources/states/menustate.cpp
+    sources/states/connectionmenustate.cpp \
+    sources/states/mainmenustate.cpp
 
 HEADERS += \
     headers/resourcemanagement/resourceholder.hpp \
@@ -30,4 +31,5 @@ HEADERS += \
     headers/states/statestack.hpp \
     headers/states/state.hpp \
     headers/states/stateidentifier.hpp \
-    headers/states/menustate.hpp
+    headers/states/mainmenustate.hpp \
+    headers/states/connectionmenustate.hpp

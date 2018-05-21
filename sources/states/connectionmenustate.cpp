@@ -1,4 +1,4 @@
-#include "headers/states/menustate.hpp"
+#include "headers/states/connectionmenustate.hpp"
 #include "headers/gui/button.hpp"
 
 #include "SFML/Window/Mouse.hpp"
@@ -6,7 +6,7 @@
 #include <memory>
 #include <iostream>
 
-MenuState::MenuState(StateStack& stateStack, Context context)
+ConnectionMenuState::ConnectionMenuState(StateStack& stateStack, Context context)
 :State(stateStack, context)
 ,mGUIContainer()
 {
@@ -14,26 +14,25 @@ MenuState::MenuState(StateStack& stateStack, Context context)
     mBackGroundSprite.setTexture(texture);
 
 
-    auto connectButton = std::make_shared<GUI::Button>(*context.mFonts, *context.mTextures, "Connection", sf::Vector2f(100.f, 100.f), false);
+    auto connectButton = std::make_shared<GUI::Button>(*context.mFonts, *context.mTextures, "Connect to server", sf::Vector2f(400.f, 300.f), false);
     connectButton->setCallback([this]()
     {
-        requestStackPop();
-        //requestStackPush(States::ID::Connection);
-        std::cout << "Set state connection";
+        std::cout << "gg";
     });
     mGUIContainer.pack(connectButton);
 
 
-    auto exitButton = std::make_shared<GUI::Button>(*context.mFonts, *context.mTextures, "Exit Game", sf::Vector2f(200.f, 100.f), false);
+    auto exitButton = std::make_shared<GUI::Button>(*context.mFonts, *context.mTextures, "Back", sf::Vector2f(400.f, 400.f), false);
     exitButton->setCallback([this]()
     {
         requestStackPop();
+        requestStackPush(States::ID::MainMenu);
     });
     mGUIContainer.pack(exitButton);
 
 }
 
-void MenuState::draw()
+void ConnectionMenuState::draw()
 {
     sf::RenderWindow& window = *getContext().mRenderWindow;
 
@@ -44,12 +43,12 @@ void MenuState::draw()
 
 }
 
-bool MenuState::update(sf::Time)
+bool ConnectionMenuState::update(sf::Time)
 {
     return true;
 }
 
-bool MenuState::handleEvent(const sf::Event& event)
+bool ConnectionMenuState::handleEvent(const sf::Event& event)
 {
     mGUIContainer.handleEvent(event, sf::Mouse::getPosition(*getContext().mRenderWindow));
     return false;

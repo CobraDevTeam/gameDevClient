@@ -6,10 +6,10 @@
 
 #include "SFML/Graphics/Sprite.hpp"
 
-class MenuState : public State
+class MainMenuState : public State
 {
     public:
-                        MenuState(StateStack& stateStack, Context context);
+                        MainMenuState(StateStack& stateStack, Context context);
 
         virtual void    draw();
         virtual bool    update(sf::Time dt);
