@@ -30,6 +30,7 @@ public:
 
     void                    setCallback(Callback callback);
     void                    setText(std::string text);
+
     /**
      * @brief Détermine si le Button est poussoir ou un interrupteur
      */

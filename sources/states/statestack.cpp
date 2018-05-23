@@ -99,4 +99,3 @@ StateStack::PendingChange::PendingChange(Action anAction, States::ID aStateID)
 
 }
 
-

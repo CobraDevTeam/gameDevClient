@@ -40,8 +40,9 @@ public:
 private:
     virtual void                    draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-
+    int                             mSelectedChild;
     std::vector<Component::Ptr>     mChildren;
+
 };
 
 }

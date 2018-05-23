@@ -44,7 +44,7 @@ void Button::setToggle(bool toggle)
 
 bool Button::isSelectable() const
 {
-    return true;
+    return false;
 }
 
 void Button::select()
