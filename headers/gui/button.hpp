@@ -46,7 +46,7 @@ public:
     /**
      * @brief Prend en charge les interruptions et les traite : active le bouton
      */
-    virtual void            handleEvent(const sf::Event&, sf::Vector2i);
+    virtual void            handleEvent(const sf::Event&, sf::Vector2i = sf::Vector2i(0,0));
 
     /**
      * @brief Détermine si les coordonnées en argument sont dans la zone du component

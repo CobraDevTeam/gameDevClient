@@ -16,7 +16,8 @@ SOURCES += \
     sources/states/statestack.cpp \
     sources/states/state.cpp \
     sources/states/connectionmenustate.cpp \
-    sources/states/mainmenustate.cpp
+    sources/states/mainmenustate.cpp \
+    sources/gui/textinput.cpp
 
 HEADERS += \
     headers/resourcemanagement/resourceholder.hpp \
@@ -32,4 +33,5 @@ HEADERS += \
     headers/states/state.hpp \
     headers/states/stateidentifier.hpp \
     headers/states/mainmenustate.hpp \
-    headers/states/connectionmenustate.hpp
+    headers/states/connectionmenustate.hpp \
+    headers/gui/textinput.hpp

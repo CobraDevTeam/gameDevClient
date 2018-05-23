@@ -30,9 +30,16 @@ void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
             {
                 (*it)->handleEvent(event, mousePos);
                 if((*it)->isSelectable())
+                {
+                    (*it)->select();
                     mSelectedChild = std::distance(mChildren.begin(), it);
+                }
             }
         }
+    }
+    else if(event.type == sf::Event::TextEntered)
+    {
+        mChildren[mSelectedChild]->handleEvent(event);
     }
 }
 

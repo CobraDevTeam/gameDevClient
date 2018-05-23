@@ -1,5 +1,6 @@
 #include "headers/states/connectionmenustate.hpp"
 #include "headers/gui/button.hpp"
+#include "headers/gui/textinput.hpp"
 
 #include "SFML/Window/Mouse.hpp"
 #include "SFML/Graphics/Texture.hpp"
@@ -29,6 +30,9 @@ ConnectionMenuState::ConnectionMenuState(StateStack& stateStack, Context context
         requestStackPush(States::ID::MainMenu);
     });
     mGUIContainer.pack(exitButton);
+
+    auto textInput = std::make_shared<GUI::TextInput>(*context.mFonts, *context.mTextures, "Bwa", sf::Vector2f(400.f, 500.f));
+    mGUIContainer.pack(textInput);
 
 }
 

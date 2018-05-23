@@ -93,13 +93,6 @@ void Button::handleEvent(const sf::Event&, sf::Vector2i)
     activate();
 }
 
-void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
-{
-    states.transform *= getTransform();
-    target.draw(mSprite, states);
-    target.draw(mText, states);
-}
-
 bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
 {
     if (mousePos.x>getPosition().x && mousePos.x<(getPosition().x + mSprite.getGlobalBounds().width)) {
@@ -108,6 +101,13 @@ bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
         }
     }
     return false;
+}
+
+void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
+{
+    states.transform *= getTransform();
+    target.draw(mSprite, states);
+    target.draw(mText, states);
 }
 
 }
