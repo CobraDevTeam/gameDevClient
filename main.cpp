@@ -1,11 +1,8 @@
 #include "headers/application.hpp"
 
-#include <test.cpp>
-
 int main()
 {
-    //Application app;
-    //app.run();
-    test();
+    Application app;
+    app.run();
     return 0;
 }
