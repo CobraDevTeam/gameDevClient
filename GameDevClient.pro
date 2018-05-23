@@ -16,7 +16,10 @@ SOURCES += \
     sources/gui/button.cpp \
     sources/utility.cpp \
     sources/states/statestack.cpp \
-    sources/states/state.cpp
+    sources/states/state.cpp \
+    sources/states/connectionmenustate.cpp \
+    sources/states/mainmenustate.cpp \
+    sources/gui/textinput.cpp
 
 HEADERS += \
     headers/resourcemanagemebnt/resourceholder.hpp \
@@ -32,4 +35,7 @@ HEADERS += \
     headers/utility.hpp \
     headers/states/statestack.hpp \
     headers/states/state.hpp \
-    headers/states/stateidentifier.hpp
+    headers/states/stateidentifier.hpp \
+    headers/states/mainmenustate.hpp \
+    headers/states/connectionmenustate.hpp \
+    headers/gui/textinput.hpp

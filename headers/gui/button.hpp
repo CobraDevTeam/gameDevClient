@@ -14,30 +14,32 @@
 
 namespace GUI {
 
-
+/**
+ * @brief Composant du GUI destiné à créer des boutons
+ */
 class Button : public Component
 {
 
 public:
     typedef std::shared_ptr<Button> Ptr;
+
     typedef std::function<void()> Callback;
 
 public:
     /**
      * @brief Constructeur, définit les textures et initialise le bouton en état normal
      */
-    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback = [](){}, std::string text = "", bool toggle = false, sf::Vector2f position = sf::Vector2f(0,0));
+    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text = "", sf::Vector2f position = sf::Vector2f(0,0), bool toggle = false);
 
-    void                    setCallblack(Callback callback);
+    void                    setCallback(Callback callback);
     void                    setText(std::string text);
+
     /**
      * @brief Détermine si le Button est poussoir ou un interrupteur
      */
     void                    setToggle(bool toggle);
 
     virtual bool            isSelectable() const;
-    virtual void            select();
-    virtual void            deselect();
 
     virtual void            activate();
     virtual void            deactivate();
@@ -45,7 +47,7 @@ public:
     /**
      * @brief Prend en charge les interruptions et les traite : active le bouton
      */
-    virtual void            handleEvent(const sf::Event&, sf::Vector2i);
+    virtual void            handleEvent(const sf::Event&, sf::Vector2i = sf::Vector2i(0,0));
 
     /**
      * @brief Détermine si les coordonnées en argument sont dans la zone du component
@@ -62,7 +64,6 @@ private:
      */
     Callback mCallback;
     const sf::Texture&      mNormalTexture;
-    const sf::Texture&      mSelectedTexture;
     const sf::Texture&      mPressedTexture;
     sf::Sprite              mSprite;
     sf::Text                mText;

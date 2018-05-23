@@ -5,15 +5,13 @@
 
 namespace GUI {
 
-
-Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, Callback callback, std::string text, bool toggle, sf::Vector2f position)
-:mCallback(callback)
-,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
-,mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
-,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
-,mSprite()
-,mText(text, font.get(Resources::FontsID::Base), 16)
-,mIsToggle(toggle)
+Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position, bool toggle)
+    :mCallback()
+    ,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
+    ,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
+    ,mSprite()
+    ,mText(text, font.get(Resources::FontsID::Base), 16)
+    ,mIsToggle(toggle)
 {
     mSprite.setTexture(mNormalTexture);
 
@@ -26,7 +24,7 @@ Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder
 }
 
 
-void Button::setCallblack(Callback callback)
+void Button::setCallback(Callback callback)
 {
     mCallback = std::move(callback);
 }
@@ -44,19 +42,7 @@ void Button::setToggle(bool toggle)
 
 bool Button::isSelectable() const
 {
-    return true;
-}
-
-void Button::select()
-{
-    Component::select();
-    mSprite.setTexture(mSelectedTexture);
-}
-
-void Button::deselect()
-{
-    Component::deselect();
-    mSprite.setTexture(mNormalTexture);
+    return false;
 }
 
 void Button::activate()
@@ -82,7 +68,7 @@ void Button::deactivate()
     if(mIsToggle)
     {
         if(isSelected())
-            mSprite.setTexture(mSelectedTexture);
+            mSprite.setTexture(mPressedTexture);
         else
             mSprite.setTexture(mNormalTexture);
     }
@@ -93,13 +79,6 @@ void Button::handleEvent(const sf::Event&, sf::Vector2i)
     activate();
 }
 
-void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
-{
-    states.transform *= getTransform();
-    target.draw(mSprite, states);
-    target.draw(mText, states);
-}
-
 bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
 {
     if (mousePos.x>getPosition().x && mousePos.x<(getPosition().x + mSprite.getGlobalBounds().width)) {
@@ -108,6 +87,13 @@ bool Button::checkMouseOnComponent(sf::Vector2i mousePos)
         }
     }
     return false;
+}
+
+void Button::draw(sf::RenderTarget &target, sf::RenderStates states) const
+{
+    states.transform *= getTransform();
+    target.draw(mSprite, states);
+    target.draw(mText, states);
 }
 
 }

@@ -21,7 +21,8 @@ enum class TexturesID
     Terre,
     NormalButton,
     SelectedButton,
-    PressedButton
+    PressedButton,
+    MainMenu
 };
 
 /**

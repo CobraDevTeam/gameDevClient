@@ -1,5 +1,7 @@
 #include "headers/states/statestack.hpp"
 
+#include <iostream>
+
 StateStack::StateStack(State::Context context)
 :mStack()
 ,mPendingList()
@@ -96,5 +98,4 @@ StateStack::PendingChange::PendingChange(Action anAction, States::ID aStateID)
 {
 
 }
-
 

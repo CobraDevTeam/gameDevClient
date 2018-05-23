@@ -34,14 +34,15 @@ public:
      * @brief Prend en charge les interruptions et les traite : ici il les renvoie au composant selectionné
      * @param mousePos : prend en argument la position de la souris par rapport à la sf::RenderWindow qui possède le container
      */
-    virtual void                    handleEvent(const sf::Event &event, sf::Vector2i mousePos);
+    virtual void                    handleEvent(const sf::Event &event, sf::Vector2i mousePos = sf::Vector2i(0,0));
 
 
 private:
     virtual void                    draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-
+    int                             mSelectedChild;
     std::vector<Component::Ptr>     mChildren;
+
 };
 
 }

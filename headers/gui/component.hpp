@@ -35,10 +35,10 @@ public:
     * @brief Détermine si le component peut être sélectionné ou pas
     */
     virtual bool    isSelectable() const = 0;
-
     bool            isSelected() const;
     virtual void    select();
     virtual void    deselect();
+
     virtual bool    isActive() const;
     virtual void    activate();
     virtual void    deactivate();
@@ -51,7 +51,7 @@ public:
     /**
     * @brief Fonction prenant en charge les interruptions des évènements
     */
-    virtual void    handleEvent(const sf::Event& event, sf::Vector2i mousePos) = 0;
+    virtual void    handleEvent(const sf::Event& event, sf::Vector2i mousePos = sf::Vector2i(0,0)) = 0;
 
 private:
     bool mIsSelected;

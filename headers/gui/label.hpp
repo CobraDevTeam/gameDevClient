@@ -35,7 +35,7 @@ public:
     /**
      * @brief Prend en charge les interruptions et les traite : ici vide, Label n'est que du texte
      */
-    virtual void                    handleEvent(const sf::Event& event, sf::Vector2i mousePos);
+    virtual void                    handleEvent(const sf::Event& event, sf::Vector2i mousePos = sf::Vector2i(0,0));
 
 private:
     void                            draw(sf::RenderTarget &target, sf::RenderStates states) const;
