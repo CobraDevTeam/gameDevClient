@@ -14,12 +14,15 @@
 
 namespace GUI {
 
-
+/**
+ * @brief Composant du GUI destiné à créer des boutons
+ */
 class Button : public Component
 {
 
 public:
     typedef std::shared_ptr<Button> Ptr;
+
     typedef std::function<void()> Callback;
 
 public:
@@ -37,8 +40,6 @@ public:
     void                    setToggle(bool toggle);
 
     virtual bool            isSelectable() const;
-    virtual void            select();
-    virtual void            deselect();
 
     virtual void            activate();
     virtual void            deactivate();
@@ -63,7 +64,6 @@ private:
      */
     Callback mCallback;
     const sf::Texture&      mNormalTexture;
-    const sf::Texture&      mSelectedTexture;
     const sf::Texture&      mPressedTexture;
     sf::Sprite              mSprite;
     sf::Text                mText;

@@ -3,6 +3,9 @@
 
 namespace States
 {
+    /**
+    * @brief Enum class référençant tous les états et leurs identifiants
+    */
     enum class ID
     {
         None,

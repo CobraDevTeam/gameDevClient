@@ -24,6 +24,18 @@ bool TextInput::isSelectable() const
     return true;
 }
 
+void TextInput::select()
+{
+    Component::select();
+    mSprite.setTexture(mSelectedTexture);
+}
+
+void TextInput::deselect()
+{
+    Component::deselect();
+    mSprite.setTexture(mNormalTexture);
+}
+
 void TextInput::setText(const std::string& text)
 {
     mText.setString(text);

@@ -9,7 +9,6 @@ namespace GUI {
 Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position, bool toggle)
     :mCallback()
     ,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
-    ,mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
     ,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
     ,mSprite()
     ,mText(text, font.get(Resources::FontsID::Base), 16)
@@ -47,18 +46,6 @@ bool Button::isSelectable() const
     return false;
 }
 
-void Button::select()
-{
-    Component::select();
-    mSprite.setTexture(mSelectedTexture);
-}
-
-void Button::deselect()
-{
-    Component::deselect();
-    mSprite.setTexture(mNormalTexture);
-}
-
 void Button::activate()
 {
     Component::activate();
@@ -82,7 +69,7 @@ void Button::deactivate()
     if(mIsToggle)
     {
         if(isSelected())
-            mSprite.setTexture(mSelectedTexture);
+            mSprite.setTexture(mPressedTexture);
         else
             mSprite.setTexture(mNormalTexture);
     }
