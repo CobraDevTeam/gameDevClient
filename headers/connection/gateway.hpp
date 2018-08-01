@@ -10,6 +10,7 @@
 class Gateway : private sf::NonCopyable
 {
     public:
+        Gateway();
         Gateway(sf::IpAddress dstAddress, unsigned int dstPort);
 
         void sendPacket(Packet packet);

@@ -2,6 +2,11 @@
 
 #include <iostream>
 
+Gateway::Gateway()
+{
+
+}
+
 Gateway::Gateway(sf::IpAddress dstAddress, unsigned int dstPort)
 : mConnectionAvailable(false)
 {
