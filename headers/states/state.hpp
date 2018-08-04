@@ -5,6 +5,7 @@
 #include "SFML/Window/Event.hpp"
 #include "SFML/System/Time.hpp"
 
+#include "headers/connection/gateway.hpp"
 #include "headers/states/stateidentifier.hpp"
 #include "headers/resourcemanagement/resourceidentifiers.hpp"
 
@@ -26,11 +27,12 @@ class State
          */
         struct Context
         {
-                                            Context(sf::RenderWindow& renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures);
+                                            Context(sf::RenderWindow& renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures, Gateway& gateway);
 
             sf::RenderWindow*               mRenderWindow;
             Resources::FontHolder*          mFonts;
             Resources::TextureHolder*       mTextures;
+            Gateway*                        mGateway;
         };
 
     public:

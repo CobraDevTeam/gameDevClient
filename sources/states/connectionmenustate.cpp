@@ -16,9 +16,9 @@ ConnectionMenuState::ConnectionMenuState(StateStack& stateStack, Context context
 
 
     auto connectButton = std::make_shared<GUI::Button>(*context.mFonts, *context.mTextures, "Connect to server", sf::Vector2f(400.f, 300.f), false);
-    connectButton->setCallback([this]()
+    connectButton->setCallback([context]()
     {
-        std::cout << "gg";
+        context.mGateway->connect(sf::IpAddress("127.0.0.1"), 50001);
     });
     mGUIContainer.pack(connectButton);
 

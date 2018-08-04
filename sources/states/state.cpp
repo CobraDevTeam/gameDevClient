@@ -2,10 +2,11 @@
 #include "headers/states/statestack.hpp"
 
 
-State::Context::Context(sf::RenderWindow &renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures)
+State::Context::Context(sf::RenderWindow &renderWindow, Resources::FontHolder& fonts, Resources::TextureHolder& textures, Gateway& gateway)
 : mRenderWindow(&renderWindow)
 , mFonts(&fonts)
 , mTextures(&textures)
+, mGateway(&gateway)
 {
 
 }

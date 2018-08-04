@@ -13,6 +13,7 @@ class Gateway : private sf::NonCopyable
         Gateway();
         Gateway(sf::IpAddress dstAddress, unsigned int dstPort);
 
+        void connect(sf::IpAddress dstAddress, unsigned int dstPort);
         void sendPacket(Packet packet);
 
     private:

@@ -8,8 +8,8 @@ Application::Application()
 : mWindow(sf::VideoMode(1152, 648), "Cobra")
 , mTextures()
 , mFonts()
-, mGateway() //sf::IpAddress("127.0.0.1"), 50002
-, mStateStack(State::Context(mWindow, mFonts, mTextures))
+, mGateway()
+, mStateStack(State::Context(mWindow, mFonts, mTextures, mGateway))
 {
     // Load base resources
     mFonts.load(Resources::FontsID::Base, "arial.ttf");
