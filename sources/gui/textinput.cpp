@@ -7,7 +7,7 @@ TextInput::TextInput(const Resources::FontHolder& font, const Resources::Texture
 : mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
 , mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
 , mSprite()
-, mText(text, font.get(Resources::FontsID::Base))
+, mText(text, font.get(Resources::FontsID::Base), 16)
 {
     mSprite.setTexture(mNormalTexture);
 
@@ -15,6 +15,7 @@ TextInput::TextInput(const Resources::FontHolder& font, const Resources::Texture
 
     sf::FloatRect bounds = mSprite.getLocalBounds();
     mText.setPosition(bounds.width/2.f, bounds.height/2.f);
+    mText.setStyle(sf::Text::Italic);
 
     Utility::centerOrigin(mText);
 }
@@ -57,7 +58,7 @@ void TextInput::handleEvent(const sf::Event& event, sf::Vector2i)
             if(str.size() > 0)
                 str.erase(str.size() - 1, 1);
         }
-        else if(event.text.unicode < 128 && str.size() <= 16)
+        else if((event.text.unicode < 128 || event.text.unicode > 159) && str.size() <= 16)
             str += event.text.unicode;
         setText(str);
     }
