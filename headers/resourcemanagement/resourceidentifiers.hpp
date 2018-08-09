@@ -22,6 +22,7 @@ enum class TexturesID
     NormalButton,
     SelectedButton,
     PressedButton,
+    HoveredButton,
     MainMenu
 };
 

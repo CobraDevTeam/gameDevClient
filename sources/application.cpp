@@ -14,9 +14,10 @@ Application::Application()
     // Load base resources
     mFonts.load(Resources::FontsID::Base, "arial.ttf");
 
-    mTextures.load(Resources::TexturesID::NormalButton, "image.png");
-    mTextures.load(Resources::TexturesID::PressedButton, "imagePressed.png");
-    mTextures.load(Resources::TexturesID::SelectedButton, "imageSelected.png");
+    mTextures.load(Resources::TexturesID::NormalButton, "button.png");
+    mTextures.load(Resources::TexturesID::PressedButton, "buttonPressed.png");
+    mTextures.load(Resources::TexturesID::SelectedButton, "buttonSelected.png");
+    mTextures.load(Resources::TexturesID::HoveredButton, "buttonHovered.png");
     mTextures.load(Resources::TexturesID::MainMenu, "mainMenu.jpg");
 
     registerStates();

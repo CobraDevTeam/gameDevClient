@@ -29,7 +29,7 @@ public:
     /**
      * @brief Constructeur, définit les textures et initialise le bouton en état normal
      */
-    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text = "", sf::Vector2f position = sf::Vector2f(0,0), bool toggle = false);
+    Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text = "", sf::Vector2f position = sf::Vector2f(0,0), bool selectable = false);
 
     void                    setCallback(Callback callback);
     void                    setText(std::string text);
@@ -37,9 +37,13 @@ public:
     /**
      * @brief Détermine si le Button est poussoir ou un interrupteur
      */
-    void                    setToggle(bool toggle);
-
+    void                    setSelectable(bool selectable);
     virtual bool            isSelectable() const;
+
+    virtual bool            isHoverable() const;
+    virtual void            hover();
+    virtual void            unhover();
+
 
     virtual void            activate();
     virtual void            deactivate();
@@ -65,9 +69,10 @@ private:
     Callback mCallback;
     const sf::Texture&      mNormalTexture;
     const sf::Texture&      mPressedTexture;
+    const sf::Texture&      mHoveredTexture;
     sf::Sprite              mSprite;
     sf::Text                mText;
-    bool                    mIsToggle;
+    bool                    mIsSelectable;
 };
 
 }

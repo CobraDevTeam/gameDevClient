@@ -36,6 +36,10 @@ public:
     virtual void                    select();
     virtual void                    deselect();
 
+    virtual bool                    isHoverable() const;
+    virtual void                    hover();
+    virtual void                    unhover();
+
     /**
     * @brief Permet de récupérer le texte tapé
     */
@@ -60,6 +64,7 @@ private:
 private:
     const sf::Texture&      mNormalTexture;
     const sf::Texture&      mSelectedTexture;
+    const sf::Texture&      mHoveredTexture;
     sf::Sprite              mSprite;
     sf::Text                mText;
 };

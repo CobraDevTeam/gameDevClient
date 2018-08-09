@@ -26,6 +26,21 @@ void Component::deselect()
     mIsSelected = false;
 }
 
+bool Component::isHovered() const
+{
+    return mIsHovered;
+}
+
+void Component::hover()
+{
+    mIsHovered = true;
+}
+
+void Component::unhover()
+{
+    mIsHovered = false;
+}
+
 bool Component::isActive() const
 {
     return mIsActive;

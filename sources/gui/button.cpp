@@ -5,13 +5,14 @@
 
 namespace GUI {
 
-Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position, bool toggle)
+Button::Button(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position, bool selectable)
     :mCallback()
     ,mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
     ,mPressedTexture(textures.get(Resources::TexturesID::PressedButton))
+    ,mHoveredTexture(textures.get(Resources::TexturesID::HoveredButton))
     ,mSprite()
     ,mText(text, font.get(Resources::FontsID::Base), 16)
-    ,mIsToggle(toggle)
+    ,mIsSelectable(selectable)
 {
     mSprite.setTexture(mNormalTexture);
 
@@ -35,27 +36,46 @@ void Button::setText(std::string text)
     Utility::centerOrigin(mText);
 }
 
-void Button::setToggle(bool toggle)
+void Button::setSelectable(bool selectable)
 {
-    mIsToggle = toggle;
+    mIsSelectable = selectable;
 }
 
 bool Button::isSelectable() const
 {
-    return false;
+    return mIsSelectable;
+}
+
+bool Button::isHoverable() const
+{
+    return true;
+}
+
+void Button::hover()
+{
+    if(isHovered() && !isActive())
+        mSprite.setTexture(mHoveredTexture);
+    Component::hover();
+}
+
+void Button::unhover()
+{
+    if(!isActive())
+        mSprite.setTexture(mNormalTexture);
+    Component::unhover();
 }
 
 void Button::activate()
 {
     Component::activate();
 
-    if(mIsToggle)
+    if(mIsSelectable)
         mSprite.setTexture(mPressedTexture);
 
     if(mCallback)
         mCallback();
 
-    if(!mIsToggle)
+    if(!mIsSelectable)
     {
         deactivate();
     }
@@ -65,7 +85,7 @@ void Button::deactivate()
 {
     Component::deactivate();
 
-    if(mIsToggle)
+    if(mIsSelectable)
     {
         if(isSelected())
             mSprite.setTexture(mPressedTexture);

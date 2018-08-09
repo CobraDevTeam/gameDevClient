@@ -6,6 +6,7 @@ namespace GUI {
 TextInput::TextInput(const Resources::FontHolder& font, const Resources::TextureHolder& textures, std::string text, sf::Vector2f position)
 : mNormalTexture(textures.get(Resources::TexturesID::NormalButton))
 , mSelectedTexture(textures.get(Resources::TexturesID::SelectedButton))
+, mHoveredTexture(textures.get(Resources::TexturesID::HoveredButton))
 , mSprite()
 , mText(text, font.get(Resources::FontsID::Base), 16)
 {
@@ -25,27 +26,48 @@ bool TextInput::isSelectable() const
     return true;
 }
 
+bool TextInput::isHoverable() const
+{
+    return true;
+}
+
 void TextInput::select()
 {
     Component::select();
+    Component::activate();
     mSprite.setTexture(mSelectedTexture);
 }
 
 void TextInput::deselect()
 {
+    Component::deactivate();
     Component::deselect();
     mSprite.setTexture(mNormalTexture);
+}
+
+void TextInput::hover()
+{
+    if(isHovered() && !isActive())
+        mSprite.setTexture(mHoveredTexture);
+    Component::hover();
+}
+
+void TextInput::unhover()
+{
+    if(!isActive())
+        mSprite.setTexture(mNormalTexture);
+    Component::unhover();
+}
+
+std::string TextInput::getText() const
+{
+    return mText.getString();
 }
 
 void TextInput::setText(const std::string& text)
 {
     mText.setString(text);
     Utility::centerOrigin(mText);
-}
-
-std::string TextInput::getText() const
-{
-    return mText.getString();
 }
 
 void TextInput::handleEvent(const sf::Event& event, sf::Vector2i)

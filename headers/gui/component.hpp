@@ -39,6 +39,14 @@ public:
     virtual void    select();
     virtual void    deselect();
 
+    /**
+    * @brief Détermine si le component doit réagir à un survol de souris
+    */
+    virtual bool    isHoverable() const = 0;
+    bool            isHovered() const;
+    virtual void    hover();
+    virtual void    unhover();
+
     virtual bool    isActive() const;
     virtual void    activate();
     virtual void    deactivate();
@@ -55,6 +63,7 @@ public:
 
 private:
     bool mIsSelected;
+    bool mIsHovered;
     bool mIsActive;
 };
 

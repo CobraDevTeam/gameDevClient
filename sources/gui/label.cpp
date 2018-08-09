@@ -16,6 +16,11 @@ bool Label::isSelectable() const
     return false;
 }
 
+bool Label::isHoverable() const
+{
+    return false;
+}
+
 void Label::setText(const std::string &text)
 {
     mText.setString(text);

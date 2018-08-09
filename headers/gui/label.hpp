@@ -30,6 +30,7 @@ public:
     * @brief Détermine si le composant peut être selectionné ou pas : ici false
     */
     virtual bool                    isSelectable() const;
+    virtual bool                    isHoverable() const;
     void                            setText(const std::string& text);
 
     /**

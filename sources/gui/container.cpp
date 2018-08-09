@@ -6,7 +6,9 @@
 namespace GUI {
 
 Container::Container()
-    :mChildren()
+    :mSelectedChild(0)
+    ,mHoveredChild(0)
+    ,mChildren()
 {
 }
 
@@ -20,26 +22,66 @@ bool Container::isSelectable() const
     return false;
 }
 
+bool Container::isHoverable() const
+{
+    return false;
+}
+
 void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
 {
-    if(event.type == sf::Event::MouseButtonPressed)
+    if(event.type == sf::Event::MouseMoved)
     {
+        handleHover(event, mousePos);
+    }
+
+    else if(event.type == sf::Event::MouseButtonPressed)
+    {
+        handleSelect(event, mousePos);
+    }
+
+    else if(event.type == sf::Event::TextEntered)
+    {
+        mChildren[mSelectedChild]->handleEvent(event);
+    }
+}
+
+bool Container::handleHover(const sf::Event &event, sf::Vector2i mousePos)
+{
+    if(!mChildren[mHoveredChild]->checkMouseOnComponent(mousePos))
+    {
+        mChildren[mHoveredChild]->unhover();
         for(auto it = mChildren.begin(); it != mChildren.end(); it++)
         {
             if((*it)->checkMouseOnComponent(mousePos))
             {
-                (*it)->handleEvent(event, mousePos);
-                if((*it)->isSelectable())
+                if((*it)->isHoverable())
                 {
-                    (*it)->select();
-                    mSelectedChild = std::distance(mChildren.begin(), it);
+                    (*it)->hover();
+                    mHoveredChild = std::distance(mChildren.begin(), it);
                 }
             }
         }
     }
-    else if(event.type == sf::Event::TextEntered)
+    else
     {
-        mChildren[mSelectedChild]->handleEvent(event);
+        mChildren[mHoveredChild]->hover();
+    }
+}
+
+bool Container::handleSelect(const sf::Event &event, sf::Vector2i mousePos)
+{
+    for(auto it = mChildren.begin(); it != mChildren.end(); it++)
+    {
+        if((*it)->checkMouseOnComponent(mousePos))
+        {
+            (*it)->handleEvent(event, mousePos);
+            if((*it)->isSelectable())
+            {
+                (*it)->select();
+                mChildren[mSelectedChild]->deselect();
+                mSelectedChild = std::distance(mChildren.begin(), it);
+            }
+        }
     }
 }
 

@@ -29,6 +29,7 @@ public:
     * @brief Détermine si le composant peut être selectionné ou pas : ici false
     */
     virtual bool                    isSelectable() const;
+    virtual bool                    isHoverable() const;
 
     /**
      * @brief Prend en charge les interruptions et les traite : ici il les renvoie au composant selectionné
@@ -40,7 +41,11 @@ public:
 private:
     virtual void                    draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
+    bool                            handleHover(const sf::Event &event, sf::Vector2i mousePos);
+    bool                            handleSelect(const sf::Event &event, sf::Vector2i mousePos);
+
     int                             mSelectedChild;
+    int                             mHoveredChild;
     std::vector<Component::Ptr>     mChildren;
 
 };
