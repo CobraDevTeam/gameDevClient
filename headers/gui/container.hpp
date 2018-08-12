@@ -41,8 +41,8 @@ public:
 private:
     virtual void                    draw(sf::RenderTarget &target, sf::RenderStates states) const;
 
-    bool                            handleHover(const sf::Event &event, sf::Vector2i mousePos);
-    bool                            handleSelect(const sf::Event &event, sf::Vector2i mousePos);
+    void                            handleHover(sf::Vector2i mousePos);
+    void                            handleSelect(const sf::Event &event, sf::Vector2i mousePos);
 
     int                             mSelectedChild;
     int                             mHoveredChild;

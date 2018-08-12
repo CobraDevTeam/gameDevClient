@@ -31,7 +31,7 @@ void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
 {
     if(event.type == sf::Event::MouseMoved)
     {
-        handleHover(event, mousePos);
+        handleHover(mousePos);
     }
 
     else if(event.type == sf::Event::MouseButtonPressed)
@@ -45,7 +45,7 @@ void Container::handleEvent(const sf::Event &event, sf::Vector2i mousePos)
     }
 }
 
-bool Container::handleHover(const sf::Event &event, sf::Vector2i mousePos)
+void Container::handleHover(sf::Vector2i mousePos)
 {
     if(!mChildren[mHoveredChild]->checkMouseOnComponent(mousePos))
     {
@@ -68,7 +68,7 @@ bool Container::handleHover(const sf::Event &event, sf::Vector2i mousePos)
     }
 }
 
-bool Container::handleSelect(const sf::Event &event, sf::Vector2i mousePos)
+void Container::handleSelect(const sf::Event &event, sf::Vector2i mousePos)
 {
     for(auto it = mChildren.begin(); it != mChildren.end(); it++)
     {
